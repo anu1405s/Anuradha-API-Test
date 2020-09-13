@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "0303db71-3e20-46fc-9fd2-f880ba7ed2fc",
+		"name": "API TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.spacexdata.com/v4/launches/latest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c94496f9-3720-45e2-83f8-bcc6dbd3c67e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.fairings.recovery_attempt).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.fairings.reused).to.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.fairings.recovered).to.eql(null);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    console.log(typeof jsonData.payloads.flight_number)\r",
+							"    pm.expect(jsonData.payloads.flight_number).to.eql(102);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    //console.log(typeof jsonData.payloads.name)\r",
+							"    pm.expect(jsonData.payloads.name).to.eql(\"Starlink-11 (v1.0)\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    //console.log(typeof jsonData.flicker.success)\r",
+							"    pm.expect(jsonData.flicker.success).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    console.log(typeof jsonData.cores.landing_attempt)\r",
+							"    pm.expect(jsonData.cores.landing_attemp).to.eql('true');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"This mission will launch the eleventh batch of operational Starlink satellites, which are expected to be version 1.0, from SLC-40, Cape Canaveral Air Force Station. It is the twelfth Starlink launch overall. The satellites will be delivered to low Earth orbit and will spend a few weeks maneuvering to their operational altitude of 550 km. The booster for this mission is expected to land on an ASDS.\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Anuradha14",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "anu1405s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fairings\": null,\r\n  \"links\": {\r\n    \"patch\": {\r\n      \"small\": \"https://images2.imgbox.com/eb/0f/Vev7xkUX_o.png\",\r\n      \"large\": \"https://images2.imgbox.com/ab/79/Wyc9K7fv_o.png\"\r\n    },\r\n    \"reddit\": {\r\n      \"campaign\": \"https://www.reddit.com/r/spacex/comments/fjf6rr/dm2_launch_campaign_thread/\",\r\n      \"launch\": \"https://www.reddit.com/r/spacex/comments/glwz6n/rspacex_cctcap_demonstration_mission_2_general\",\r\n      \"media\": \"https://www.reddit.com/r/spacex/comments/gp1gf5/rspacex_dm2_media_thread_photographer_contest/\",\r\n      \"recovery\": \"https://www.reddit.com/r/spacex/comments/gu5gkd/cctcap_demonstration_mission_2_stage_1_recovery/\"\r\n    },\r\n    \"flickr\": {\r\n      \"small\": [],\r\n      \"original\": [\r\n        \"https://live.staticflickr.com/65535/49927519643_b43c6d4c44_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49927519588_8a39a3994f_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49928343022_6fb33cbd9c_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49934168858_cacb00d790_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49934682271_fd6a31becc_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49956109906_f88d815772_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49956109706_cffa847208_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49956109671_859b323ede_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49955609618_4cca01d581_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49956396622_975c116b71_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49955609378_9b77e5c771_o.jpg\",\r\n        \"https://live.staticflickr.com/65535/49956396262_ef41c1d9b0_o.jpg\"\r\n      ]\r\n    },\r\n    \"presskit\": \"https://www.nasa.gov/sites/default/files/atoms/files/commercialcrew_press_kit.pdf\",\r\n    \"webcast\": \"https://youtu.be/xY96v0OIcK4\",\r\n    \"youtube_id\": \"xY96v0OIcK4\",\r\n    \"article\": \"https://spaceflightnow.com/2020/05/30/nasa-astronauts-launch-from-us-soil-for-first-time-in-nine-years/\",\r\n    \"wikipedia\": \"https://en.wikipedia.org/wiki/Crew_Dragon_Demo-2\"\r\n  },\r\n  \"static_fire_date_utc\": \"2020-05-22T17:39:00.000Z\",\r\n  \"static_fire_date_unix\": 1590169140,\r\n  \"tdb\": false,\r\n  \"net\": false,\r\n  \"window\": 0,\r\n  \"rocket\": \"5e9d0d95eda69973a809d1ec\",\r\n  \"success\": true,\r\n  \"failures\": [],\r\n  \"details\": \"SpaceX will launch the second demonstration mission of its Crew Dragon vehicle as part of NASA's Commercial Crew Transportation Capability Program (CCtCap), carrying two NASA astronauts to the International Space Station. Barring unexpected developments, this mission will be the first crewed flight to launch from the United States since the end of the Space Shuttle program in 2011. DM-2 demonstrates the Falcon 9 and Crew Dragon's ability to safely transport crew to the space station and back to Earth and it is the last major milestone for certification of Crew Dragon. Initially the mission duration was planned to be no longer than two weeks, however NASA has been considering an extension to as much as six weeks or three months. The astronauts have been undergoing additional training for the possible longer mission.\",\r\n  \"crew\": [\r\n    \"5ebf1b7323a9a60006e03a7b\",\r\n    \"5ebf1a6e23a9a60006e03a7a\"\r\n  ],\r\n  \"ships\": [\r\n    \"5ea6ed30080df4000697c913\",\r\n    \"5ea6ed2f080df4000697c90b\",\r\n    \"5ea6ed2f080df4000697c90c\",\r\n    \"5ea6ed2e080df4000697c909\",\r\n    \"5ea6ed2f080df4000697c90d\"\r\n  ],\r\n  \"capsules\": [\r\n    \"5e9e2c5df359188aba3b2676\"\r\n  ],\r\n  \"payloads\": [\r\n    \"5eb0e4d1b6c3bb0006eeb257\"\r\n  ],\r\n  \"launchpad\": \"5e9e4502f509094188566f88\",\r\n  \"auto_update\": true,\r\n  \"flight_number\": 94,\r\n  \"name\": \"CCtCap Demo Mission 2\",\r\n  \"date_utc\": \"2020-05-30T19:22:00.000Z\",\r\n  \"date_unix\": 1590866520,\r\n  \"date_local\": \"2020-05-30T15:22:00-04:00\",\r\n  \"date_precision\": \"hour\",\r\n  \"upcoming\": false,\r\n  \"cores\": [\r\n    {\r\n      \"core\": \"5e9e28a7f3591817f23b2663\",\r\n      \"flight\": 1,\r\n      \"gridfins\": true,\r\n      \"legs\": true,\r\n      \"reused\": false,\r\n      \"landing_attempt\": true,\r\n      \"landing_success\": true,\r\n      \"landing_type\": \"ASDS\",\r\n      \"landpad\": \"5e9e3032383ecb6bb234e7ca\"\r\n    }\r\n  ],\r\n  \"id\": \"5eb87d46ffd86e000604b388\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.spacexdata.com/v4/launches/latest",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spacexdata",
+						"com"
+					],
+					"path": [
+						"v4",
+						"launches",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
